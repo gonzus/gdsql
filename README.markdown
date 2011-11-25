@@ -21,8 +21,8 @@ What is does not do / will never do
 What does it look like
 ----------------------
 
-This is an example of accessing a Postgres database. We read rows from
-table `people`, which has at least these columns:
+This is an example of accessing a PostgreSQL database. We read rows
+from table `people`, which has at least these columns:
 
 * `id`: the integer primary key
 * `name`: a string with the person's name.
@@ -89,10 +89,11 @@ SQL syntax).
 What databases are supported
 ----------------------------
 
-There already is support for `SQLite`, `Postgres` and `MySQL`.
+There already is support for [SQLite][1], [PostgreSQL][2] and [MySQL][3].
 
 I believe the library will be ready for a v1.0 release when it also
-provides support for `Oracle`, `Sybase`, `DB2` and `SQLServer`.
+provides support for [Oracle][4], [Sybase][5], [DB2][6] and [SQL
+Server][7].
 
 
 What the name means
@@ -100,3 +101,12 @@ What the name means
 
 The name `gdsql` means "Good SQL". The fact that `GD` are also the
 initials of the original author is purely coincidental...
+
+
+[1]: http://www.sqlite.org/                 "SQLite"
+[2]: http://www.postgresql.org/             "PostgreSQL"
+[3]: http://www.mysql.com/                  "MySQL"
+[4]: http://www.oracle.com/                 "Oracle"
+[5]: http://www.sybase.com/                 "Sybase"
+[6]: http://www.ibm.com/software/data/db2/  "DB2"
+[7]: http://www.microsoft.com/sqlserver/    "SQL Server"
