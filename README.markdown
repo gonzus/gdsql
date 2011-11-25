@@ -1,12 +1,14 @@
-GDSQL - The "Good SQL" library
+GDSQL -- The "Good SQL" library
 ==============================
+
 
 What is does / will do
 ----------------------
 
 1. Define a uniform C API to access a relational database using prepared statements.
-2. Support multiple databases.
+2. Support multiple databases, at the same time from a single program.
 3. Simplify your life.
+
 
 What is does not do / will never do
 -----------------------------------
@@ -14,6 +16,7 @@ What is does not do / will never do
 1. Provide an object-relational bridge.
 2. Hide different SQL syntaxes.
 3. Eat up your memory and/or CPU.
+
 
 What does it look like
 ----------------------
@@ -25,7 +28,7 @@ table `people`, which has at least these columns:
 * `name`: a string with the person's name.
 * `birth`: a datetime with the person's birthday.
 
-Here is the code, without any error checking. This same exact code
+Here is the code, without any error checking. This exact same code
 should work with other databases (except for any differences in the
 SQL syntax).
 
@@ -81,3 +84,19 @@ SQL syntax).
     gdsql_db_close(db);
     gdsql_db_free(db);
     gdsql_fini(gdsql);
+
+
+What databases are supported
+----------------------------
+
+There already is support for `SQLite`, `Postgres` and `MySQL`.
+
+I believe the library will be ready for a v1.0 release when it also
+provides support for `Oracle`, `Sybase`, `DB2` and `SQLServer`.
+
+
+What the name means
+-------------------
+
+The name `gdsql` means "Good SQL". The fact that `GD` are also the
+initials of the original author is purely coincidental...
