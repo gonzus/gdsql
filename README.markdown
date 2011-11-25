@@ -56,9 +56,6 @@ SQL syntax).
         
     int id;
     char name[100];
-    double birth;
-    double height;
-    int single;
 
     gdsql_stmt_bindr_int    (stmt, 1, &id);
     gdsql_stmt_bindr_string (stmt, 2, name, 100);
@@ -72,11 +69,11 @@ SQL syntax).
         if (ret != 0)
             break;
 
-            if (gdsql_stmt_is_column_null(stmt, 2))
-                strcpy(name, "NULL");
+        if (gdsql_stmt_is_column_null(stmt, 2))
+            strcpy(name, "NULL");
 
-            printf("Row %d: %d|%s\n",
-                   ++n, id, name);
+        printf("Row %d: %d|%s\n",
+               ++n, id, name);
     }
 
     gdsql_stmt_finalize(stmt);
