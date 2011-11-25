@@ -25,6 +25,10 @@ table `people`, which has at least these columns:
 * `name`: a string with the person's name.
 * `birth`: a datetime with the person's birthday.
 
+Here is the code, without any error checking. This same exact code
+should work with other databases (except for any differences in the
+SQL syntax).
+
     gdsql gdsql = 0;
     gdsql_db db = 0;
     gdsql_stmt stmt = 0;
