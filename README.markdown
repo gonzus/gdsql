@@ -38,7 +38,7 @@ SQL syntax).
 
     gdsql = gdsql_init();
 
-    db = gdsql_db_alloc(gdsql, TEST_DB_TYPE);
+    db = gdsql_db_alloc(gdsql, GDSQL_DB_POSTGRES);
     gdsql_db_set_host(db, "localhost");
     gdsql_db_set_port(db, 5432);
     gdsql_db_set_name(db, "db");
@@ -51,8 +51,8 @@ SQL syntax).
                          "SELECT id,name FROM people WHERE birth BETWEEN $1 AND $2 ORDER BY id;");
     gdsql_stmt_prepare(stmt, db)
 
-    double d1 = gdsql_cal2jul(1970,  1,  1, 0, 0, 0);
-    double d2 = gdsql_cal2jul(2004, 12, 31, 0, 0, 0);
+    double d1 = gdsql_cal2jul(1970,  1,  1,  0,  0,  0);
+    double d2 = gdsql_cal2jul(2004, 12, 31, 23, 59, 59);
             
     gdsql_stmt_bindp_date(stmt, 1, d1);
     gdsql_stmt_bindp_date(stmt, 2, d2);
@@ -60,8 +60,8 @@ SQL syntax).
     int id;
     char name[100];
 
-    gdsql_stmt_bindr_int    (stmt, 1, &id);
-    gdsql_stmt_bindr_string (stmt, 2, name, 100);
+    gdsql_stmt_bindr_int   (stmt, 1, &id);
+    gdsql_stmt_bindr_string(stmt, 2, name, 100);
 
     int n = 0;
     while (1) {
