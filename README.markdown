@@ -5,7 +5,8 @@ GDSQL -- The "Good SQL" library
 What is does / will do
 ----------------------
 
-1. Define a uniform C API to access a relational database using prepared statements.
+1. Define a uniform C API to access a relational database using
+prepared statements.
 2. Support multiple databases, at the same time from a single program.
 3. Simplify your life.
 
@@ -89,7 +90,8 @@ SQL syntax).
 What databases are supported
 ----------------------------
 
-There already is support for [SQLite][1], [PostgreSQL][2] and [MySQL][3].
+There already is support for [SQLite][1], [PostgreSQL][2] and
+[MySQL][3].
 
 I believe the library will be ready for a v1.0 release when it also
 provides support for [Oracle][4], [Sybase][5], [DB2][6] and [SQL
