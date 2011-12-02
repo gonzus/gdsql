@@ -39,7 +39,7 @@ SQL syntax).
 
     gdsql = gdsql_init();
 
-    db = gdsql_db_alloc(gdsql, GDSQL_DB_POSTGRES);
+    db = gdsql_alloc_db(gdsql, GDSQL_DB_POSTGRES);
     gdsql_db_set_host(db, "localhost");
     gdsql_db_set_port(db, 5432);
     gdsql_db_set_name(db, "db");
@@ -47,10 +47,9 @@ SQL syntax).
     gdsql_db_set_password(db, "password");
     gdsql_db_open(db);
 
-    stmt = gdsql_stmt_alloc(gdsql);
+    stmt = gdsql_db_alloc_stmt(db);
     gdsql_stmt_set_query(stmt,
                          "SELECT id,name FROM people WHERE birth BETWEEN $1 AND $2 ORDER BY id;");
-    gdsql_stmt_prepare(stmt, db)
 
     double d1 = gdsql_cal2jul(1970,  1,  1,  0,  0,  0);
     double d2 = gdsql_cal2jul(2004, 12, 31, 23, 59, 59);
@@ -81,9 +80,9 @@ SQL syntax).
     }
 
     gdsql_stmt_finalize(stmt);
-    gdsql_stmt_free(stmt);
+    gdsql_db_free_stmt(stmt);
     gdsql_db_close(db);
-    gdsql_db_free(db);
+    gdsql_free_db(db);
     gdsql_fini(gdsql);
 
 
