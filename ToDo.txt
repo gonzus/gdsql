@@ -1,0 +1,41 @@
+Add a state to all statements; change API so that it is not necessary
+to explicitly prepare a statement.  This way we can use the facility
+in some RDBMSs (Oracle and DB2) to prepare and execute in one go,
+avoiding a round trip to the server; for other RDBMSs, we just prepare
+and execute in two separate (automatic) steps.
+
+Review numbering of parameters / results in an SQL query string, to
+make them consistent across databases; allow to specify bindings for
+results in any order (is it always possible?)
+
+Maybe add binding function get_next_param_name() -> "?1", "$2", etc.
+
+Improve error handling: create error constants, check if underlying
+DBs could return other codes, etc.
+
+Implement single set of alloc/free routines.
+
+Auto-boot a gdsql handle if no drivers have been registered (start
+with cnt=-1, then cnt=# of drivers registered).
+
+Handle parameters / results for other types:
+int64
+blob
+
+Add suport for other RDBMSs:
+Sybase
+SQL Server
+Oracle
+DB2
+
+Auto-grow some fixed-size arrays (params, maybe others).
+
+Implement conditional inclusion of specific databases.
+
+Test / profile and compare to other libraries / native
+implementations.
+
+Add support for bulk (array) parameters / results:
+params: INSERT INTO XXX VALUES (), (), ()...;
+results: SELECT * FROM...
+NOT SUPPORTED IN: sqlite

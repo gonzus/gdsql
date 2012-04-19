@@ -1,5 +1,5 @@
 GDSQL -- The "Good SQL" library
-==============================
+===============================
 
 
 What is does / will do
